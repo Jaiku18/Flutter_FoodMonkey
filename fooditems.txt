@@ -1,0 +1,96 @@
+"Name": "schezwan fried rice",
+      "Desc": "MSpicy rice with schezwan masala ",
+      "image": "UI/schezwan fried rice.PNG"
+
+"Name": "Mutton Briyani",
+      "Desc": "Mutton is cooked with rice, masala spicies ",
+      "image": "UI/chicken_biryani.PNG"
+
+"Name": "Paneer fried rice",
+      "Desc": "Paneer mixed with veg rice",
+      "image": "UI/paneer_fried_rice.PNG"
+
+
+"Name": "chicken 65 biryani",
+      "Desc": "Chicken is cooked with rice, masala spicies and served with Chicken 65 pieces",
+      "image": "UI/chicken_biryani.PNG"
+
+
+
+"Name": "Chicken Briyani",
+      "Desc": "Chicken is cooked with rice and masala spicies",
+      "image": "UI/chicken_biryani.PNG"
+
+
+"Name": "Chicken Boneless Briyani",
+      "Desc": "Chicken is cooked with rice, masala spicies and served with boneless pieces",
+      "image": "UI/chicken_biryani.PNG"
+
+
+"Name": "Gobi Manchurian",
+      "Desc": "Gobi is cooked with the chineses masala",
+      "image": "UI/gobi_manchurian.PNG"
+
+
+"Name": "Paneer 65",
+      "Desc": "Paneer is fried with 65 masala",
+      "image": "UI/paneer_fried_rice.PNG"
+
+"Name": "pepperoni pizza",
+      "Desc": "Chessy Pizza with pepperoni toppings",
+      "image": "UI/pepperoni_pizza.PNG"
+
+"Name": "paneer pizza",
+      "Desc": "Chessy Pizza with paneer toppings",
+      "image": "UI/paneer_pizza.PNG"
+
+"Name": "mushroom pizza",
+      "Desc": "Chessy Pizza with mushroom toppings",
+      "image": "UI/mushroom_pizza.PNG"
+
+
+"Name": "cone pizza",
+      "Desc": "Chessy Pizza with cone toppings",
+      "image": "UI/cone_pizza.PNG"
+
+
+"Name": "chicken pizza",
+      "Desc": "Chessy Pizza with chicken toppings",
+      "image": "UI/chicken_pizza.PNG"
+
+"Name": "beef pizza",
+      "Desc": "Chessy Pizza with beef toppings",
+      "image": "UI/beef_pizza.PNG"
+
+"Name": "aloo pizza", 
+      "Desc": "Chessy Pizza with aloo toppings",
+      "image": "UI/aloo_pizza.PNG"
+
+      "Name": "Dosa",
+      "Desc": "Dosa served with sambar and chutney",
+      "image": "UI/dosa.PNG"
+
+"Amount": "45",
+      "Name": "idly",
+      "Desc": "idly served with sambar and chutney",
+      "image": "UI/idly.PNG"
+
+"Name": "Rava dosa",
+      "Desc": "Rava dosa served with sambar and chutney",
+      "image": "UI/rava_dosa.PNG"
+
+ "Name": "Poori",
+      "Desc": "Poori served with gravy",
+      "image": "UI/poori.PNG"
+
+"Name": "Sambar vada",
+      "Desc": "sambar vada served with sambar",
+      "image": "UI/sambar vada.PNG"
+
+
+
+
+
+
+
+

@@ -1,0 +1,146 @@
+Zomato API-----d97b3ec78dc51c83b587313f10fbfac8
+
+https://practice.geeksforgeeks.org/tracks/DSASP-Intro/?batchId=154
+
+insert into hotels values(2,'Salem RR','Thuraipakam','North Indian, Chinese, Chettinad, Beverages','45 Mins','UI/SalemRR.PNG','350','3.9','12.9876121916','80.2183274883',0)
+
+https://stackoverflow.com/questions/58938531/card-list-view-in-flutter-from-object
+
+
+schezwan fried rice:
+Spicy rice with schezwan masala
+
+Paneer fried rice:
+Paneer mixed with veg rice
+
+chicken 65 biryani
+Chicken is cooked with rice, masala spicies and served with Chicken 65 pieces
+
+Chicken Briyani
+Chicken is cooked with rice and masala spicies
+
+Chicken Boneless Briyani
+Chicken is cooked with rice, masala spicies and served with boneless pieces
+
+Gobi Manchurian
+Gobi is cooked with the chineses masala
+
+Paneer 65 
+Paneer is fried with 65 masala
+
+
+first table
+1: id(unique) int 
+2: hotel name String
+3: area String
+4: image String
+5: cusine String
+6: timing String
+7: amount double
+8: rating double
+9: lat
+10: lon
+
+second table
+
+1: Dish name String
+2: dish description String
+3: amount double
+4: image String
+5: veg/nonveg String
+
+
+
+   child: Container(
+                                  height: 25.0,
+                                  width: 25.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7.0),
+                                      color: Color(0xFF7A9BEE)),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                      size: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Text('2',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 15.0)),
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 25.0,
+                                  width: 25.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7.0),
+                                      color: Colors.white),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Color(0xFF7A9BEE),
+                                      size: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+
+-------------------------------------------------------------------------------------------------------------
+
+Container(
+        height: 65,
+        width: 100,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Flexible(
+              child: IconButton(
+                splashColor: Colors.yellow,
+                color: Colors.black,
+                icon: Icon(AntDesign.minus),
+                iconSize: 25,
+                onPressed: () {
+                  setState(() {
+                    numberOfItem -= 1;
+                    if (numberOfItem < 0) {
+                      numberOfItem = 0;
+                    }
+                    numberToReturn = numberOfItem;
+                  });
+                },
+              ),
+            ),
+            SizedBox(width: 20),
+            Flexible(
+              child: Text(numberOfItem.toString(),
+                  style: fontStyle.copyWith(fontSize: 20)),
+            ),
+            SizedBox(width: 10),
+            Flexible(
+              child: IconButton(
+                color: Colors.black,
+                icon: Icon(AntDesign.plus),
+                iconSize: 25,
+                onPressed: () {
+                  setState(() {
+                    numberOfItem += 1;
+
+                    print(numberOfItem);
+                    numberToReturn = numberOfItem;
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+      )

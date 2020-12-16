@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417818566514",
+    "project_id": "foodmonkey-d67c7",
+    "storage_bucket": "foodmonkey-d67c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417818566514:android:9de5e41db62ed14f67c7eb",
+        "android_client_info": {
+          "package_name": "com.jai.food_delivery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417818566514-8cmeqj05j78m9chkdl6auo2eomj6l4dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATQt6eB5oK20lc4SoxRmDMzsppAjpmKdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417818566514-8cmeqj05j78m9chkdl6auo2eomj6l4dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
