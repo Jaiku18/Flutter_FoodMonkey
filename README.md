@@ -1,16 +1,25 @@
 # food_delivery_app
 
-A new Flutter application.
+Hi this App is used to book food from Restraunts, the front screen contains the logo, 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![](FrontScreen.jpeg)
 
-A few resources to get you started if this is your first Flutter project:
+on clicking the logo you will have to authenicate yourself 
+![](FrontScreenwithFingerPrint.jpeg)
+You will be navigated to hotel menu, you can check the offers and select the hotels you want to order
+Veg only option will get you the Veg restraunts
+![](HotelScreen.jpeg)
+on slecting the hotel, you will be navigating to menu card, you can select as many as dishes you want
+![](MenuScreen.jpeg)
+Cart screen is used to confirm your order and quantity of the order
+![](CartScreen.jpeg)
+you will be navigate to pay the bill, dont know since it is testing project no charges is applicable 
+![](Payment.jpeg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Not yet over, you can interact with Food Monkey chat bot which will assist you with your queries regrading hotels, receipes and sooo on
+![](ChatBot1.jpeg)
+![](ChatBot2.jpeg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
