@@ -28,7 +28,7 @@ class _homePageState extends State<homePage> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF6200EE),
+        backgroundColor: Colors.white,
         selectedItemColor: Color(0xFF6200EE),
         unselectedItemColor: Color(0xFF6200EE).withOpacity(0.4),
         onTap: onTap,
