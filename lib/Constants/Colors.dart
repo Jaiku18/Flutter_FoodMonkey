@@ -8,8 +8,11 @@ import 'package:food_delivery_app/Constants/ListForMenu.dart';
 double screenWidth = 0.0;
 double screenHeight = 0.0;
 int numberToReturn = 0;
-TextStyle fontStyle = GoogleFonts.prociono(
-    fontStyle: FontStyle.italic, fontSize: 10, color: Colors.black);
+
+TextStyle fontStyle =
+    TextStyle(fontFamily: 'Nexa', fontWeight: FontWeight.w500, fontSize: 35);
+/*GoogleFonts.prociono(
+    fontStyle: FontStyle.italic, fontSize: 10, color: Colors.black);*/
 
 const color_for_Button = Color(0xFF473fb5);
 const color_for_Gradiant = Color(0xFFADA3D4);

@@ -15,38 +15,41 @@ class OfferCard extends StatelessWidget {
         image: DecorationImage(
             image: AssetImage("UI/Backgroung_UI.PNG"), fit: BoxFit.fill),
       ),
-      child: Container(
-        height: 150,
-        width: 500,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: color.withOpacity(0.6),
-        ),
-        child: Row(
-          children: [
-            Flexible(
-              flex: 2,
-              child: Column(
-                children: [
-                  Text(
-                    firstDes,
-                    style: fontStyle.copyWith(fontSize: 25),
-                  ),
-                  Text(
-                    secondDes,
-                    style: fontStyle.copyWith(fontSize: 25),
-                  ),
-                ],
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: Container(
+          height: 150,
+          width: 500,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: color.withOpacity(0.6),
+          ),
+          child: Row(
+            children: [
+              Flexible(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Text(
+                      firstDes,
+                      style: fontStyle.copyWith(fontSize: 25),
+                    ),
+                    Text(
+                      secondDes,
+                      style: fontStyle.copyWith(fontSize: 25),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Flexible(
-              flex: 1,
-              child: Image(
-                image: AssetImage(imagePath),
+              Flexible(
+                flex: 1,
+                child: Image(
+                  image: AssetImage(imagePath),
+                ),
               ),
-            ),
-            SizedBox(width: 15)
-          ],
+              SizedBox(width: 15)
+            ],
+          ),
         ),
       ),
     );

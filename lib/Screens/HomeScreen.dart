@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:food_delivery_app/Constants/Colors.dart';
@@ -27,13 +28,42 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
+        color: Color(0xFF6200EE).withOpacity(0.4),
+        buttonBackgroundColor: Colors.white,
         backgroundColor: Colors.white,
-        selectedItemColor: Color(0xFF6200EE),
-        unselectedItemColor: Color(0xFF6200EE).withOpacity(0.4),
+
+        /*   color: Colors.white,
+        buttonBackgroundColor: Colors.white,
+        backgroundColor: Color(0xFF6200EE).withOpacity(0.4),*/
+
+        /* backgroundColor: Color(0xFF6200EE).withOpacity(0.4),
+           selectedItemColor: Color(0xFF6200EE),
+        unselectedItemColor: Color(0xFF6200EE).withOpacity(0.4),*/
         onTap: onTap,
-        currentIndex: _currentIndex,
         items: [
+          Icon(
+            Icons.restaurant_menu,
+            size: 20,
+            color: Color(0xFF6200EE).withOpacity(0.7),
+          ),
+          Icon(
+            Icons.shopping_cart,
+            size: 20,
+            color: Color(0xFF6200EE).withOpacity(0.7),
+          ),
+          Icon(
+            Icons.chat_sharp,
+            size: 20,
+            color: Color(0xFF6200EE).withOpacity(0.7),
+          )
+        ],
+        animationCurve: Curves.elasticInOut,
+        animationDuration: Duration(milliseconds: 600),
+
+        /*ex: _currentIndex,
+_children [
           BottomNavigationBarItem(
               icon: Icon(AntDesign.piechart),
               // ignore: deprecated_member_use
@@ -46,7 +76,7 @@ class _homePageState extends State<homePage> {
               icon: Icon(AntDesign.user),
               // ignore: deprecated_member_use
               title: Text('Account')),
-        ],
+        ],*/
       ),
     );
   }

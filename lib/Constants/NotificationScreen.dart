@@ -21,6 +21,11 @@ class NotificationPlugin {
       _requestIOSPermission();
     }
     initializePlatformSpecifics();
+    showNotification();
+  }
+
+  initState() {
+    initializePlatformSpecifics();
   }
 
   initializePlatformSpecifics() {

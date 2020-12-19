@@ -5,6 +5,7 @@ import 'package:food_delivery_app/Constants/Colors.dart';
 import 'package:food_delivery_app/Constants/ListForAll.dart';
 import 'package:food_delivery_app/Constants/Buttons.dart';
 import 'package:food_delivery_app/Screens/payment_screen.dart';
+import 'package:get/get.dart';
 
 class TopMenu extends StatefulWidget {
   static const String id = 'TopMenu';
@@ -13,20 +14,15 @@ class TopMenu extends StatefulWidget {
 }
 
 class _TopMenuState extends State<TopMenu> {
+  ProductController productController = Get.put(ProductController());
   @override
   void initState() {
     // TODO: implement initState
-    getSum();
+
     super.initState();
   }
 
   double sum = 0;
-  getSum() {
-    MyCartItem.forEach((element) {
-      sum = int.parse(element.amount) * element.numberofItems + sum;
-    });
-    print(sum);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +51,13 @@ class _TopMenuState extends State<TopMenu> {
               ),
               Row(
                 children: <Widget>[
-                  Text(
-                    'Top of the day',
-                    style:
-                        fontStyle.copyWith(fontSize: 35, color: Colors.black),
-                  ),
+                  Text('Top of the day',
+                      style: TextStyle(
+                          fontFamily: 'Nexa',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 35)
+                      /*fontStyle.copyWith(fontSize: 35, color: Colors.black),*/
+                      ),
                   SizedBox(width: 10),
                   Container(
                     height: 30,
@@ -92,12 +90,7 @@ class _TopMenuState extends State<TopMenu> {
                   ),
                   SizedBox(width: 10),
                   IconButton(
-                    onPressed: () {
-                      print('Arrow is working' + MyCartItem.length.toString());
-                      setState(() {
-                        MyCartItem.removeRange(0, MyCartItem.length);
-                      });
-                    },
+                    onPressed: () {},
                     icon: Icon(AntDesign.arrowright),
                   )
                 ],
@@ -105,7 +98,7 @@ class _TopMenuState extends State<TopMenu> {
               SizedBox(height: 10),
               Flexible(child: StatefulBuilder(builder: (context, setState) {
                 return ListView(
-                  children: MyCartItem,
+                  children: productController.MyCartItem,
                 );
               })),
               /*(

@@ -110,7 +110,12 @@ class ChatMessage extends StatelessWidget {
     return <Widget>[
       new Container(
         margin: const EdgeInsets.only(right: 16.0),
-        child: new CircleAvatar(child: new Text('B')),
+        child: new CircleAvatar(
+          backgroundColor: Colors.white24.withOpacity(1),
+          child: Image(
+            image: AssetImage("UI/FoodmonkeyLogo.PNG"),
+          ),
+        ),
       ),
       new Expanded(
         child: new Column(

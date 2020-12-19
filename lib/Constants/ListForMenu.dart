@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/Constants/Colors.dart';
 import 'package:food_delivery_app/Constants/ListForAll.dart';
 import 'package:food_delivery_app/Model/MenuModel.dart';
+import 'package:food_delivery_app/Constants/MenuCards.dart';
+import 'package:get/get.dart';
 
 class ListForMenu extends StatefulWidget {
   String itemName;
@@ -17,30 +19,46 @@ class ListForMenu extends StatefulWidget {
 }
 
 class _ListForMenuState extends State<ListForMenu> {
+  ProductController productController = Get.put(ProductController());
+  MenuCardsState menu = MenuCardsState();
   int numberOfItem = 0;
+  int sumOfItems = 0;
+
   AfterAdd() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         InkWell(
           onTap: () {
+            productController
+                .getNumberofCartItem(productController.MyCartItem.length);
+            productController.getSumAmount(sumOfItems);
             setState(() {
+              sumOfItems = 0;
+              productController.MyCartItem.forEach((element) {
+                sumOfItems = int.parse(element.amount) * element.numberofItems +
+                    sumOfItems;
+              });
+
               numberOfItem -= 1;
               /*  MyCartItems.remove(ListForMenu(widget.itemName,
                   widget.description, widget.amount, widget.imgPath));*/
               if (numberOfItem < 1) {
-                MyCartItem.removeWhere(
+                productController.MyCartItem.removeWhere(
                     (element) => element.itemName == widget.itemName);
               }
 
               if (numberOfItem < 0) {
                 numberOfItem = 0;
-                MyCartItem.removeWhere(
+                productController.MyCartItem.removeWhere(
                     (element) => element.itemName == widget.itemName);
               }
               numberToReturn = numberOfItem;
-              MyCartItem.single.numberofItems =
-                  (MyCartItem.single.numberofItems - 1);
+              productController.MyCartItem.single.numberofItems =
+                  (productController.MyCartItem.single.numberofItems - 1);
+              productController
+                  .getNumberofCartItem(productController.MyCartItem.length);
+              productController.getSumAmount(sumOfItems);
             });
           },
           child: Container(
@@ -63,39 +81,42 @@ class _ListForMenuState extends State<ListForMenu> {
                 color: Colors.white, fontFamily: 'Montserrat', fontSize: 15.0)),
         InkWell(
           onTap: () {
+            productController
+                .getNumberofCartItem(productController.MyCartItem.length);
+            productController.getSumAmount(sumOfItems);
             setState(() {
+              sumOfItems = 0;
+              productController.MyCartItem.forEach((element) {
+                sumOfItems = int.parse(element.amount) * element.numberofItems +
+                    sumOfItems;
+              });
               numberOfItem += 1;
-              if (MyCartItem.where(
+              if (productController.MyCartItem.where(
                       (element) => element.itemName == widget.itemName) !=
                   null) {
                 print('woooooooo');
-                MyCartItem.single.numberofItems =
-                    (MyCartItem.single.numberofItems + 1);
+                productController.MyCartItem.single.numberofItems =
+                    (productController.MyCartItem.single.numberofItems + 1);
               } else {
-                MyCartItem.add(MenuItem(
+                productController.MyCartItem.add(MenuItem(
                     widget.itemName,
                     widget.description,
                     widget.amount,
                     widget.imgPath,
                     numberOfItem,
                     widget.HotelName));
-
-                /*MyCartItems.add(ListForMenu(widget.itemName, widget.description,
-                    widget.amount, widget.imgPath));*/
               }
-
-              /*if (MyCartItems.contains(
-                widget.itemName,
-              )) {
-                print('wowwwwww');
-              } else {
-                MyCartItem.add(MenuItem(widget.itemName, widget.description,
-                    widget.amount, widget.imgPath, numberOfItem));
-              }*/
 
               print(numberOfItem);
               numberToReturn = numberOfItem;
+
+              productController
+                  .getNumberofCartItem(productController.MyCartItem.length);
+              productController.getSumAmount(sumOfItems);
             });
+
+            /* productController.getNumberofCartItem(MyCartItem.length);
+            productController.getSumAmount(sumOfItems);*/
           },
           child: Container(
             height: 25.0,
@@ -125,9 +146,18 @@ class _ListForMenuState extends State<ListForMenu> {
         SizedBox(width: 15),
         InkWell(
           onTap: () {
+            productController
+                .getNumberofCartItem(productController.MyCartItem.length);
+            productController.getSumAmount(sumOfItems);
             setState(() {
+              sumOfItems = 0;
+              productController.MyCartItem.forEach((element) {
+                sumOfItems = int.parse(element.amount) * element.numberofItems +
+                    sumOfItems;
+              });
+
               numberOfItem += 1;
-              MyCartItem.add(MenuItem(
+              productController.MyCartItem.add(MenuItem(
                   widget.itemName,
                   widget.description,
                   widget.amount,
@@ -138,13 +168,19 @@ class _ListForMenuState extends State<ListForMenu> {
                   widget.amount, widget.imgPath));*/
               if (numberOfItem < 0) {
                 numberOfItem = 0;
-                MyCartItem.removeWhere(
+                productController.MyCartItem.removeWhere(
                     (element) => element.itemName == widget.itemName);
                 /* MyCartItems.remove(ListForMenu(widget.itemName,
                     widget.description, widget.amount, widget.imgPath));*/
               }
               numberToReturn = numberOfItem;
+              productController
+                  .getNumberofCartItem(productController.MyCartItem.length);
+              productController.getSumAmount(sumOfItems);
             });
+
+            /*productController.getNumberofCartItem(MyCartItem.length);
+            productController.getSumAmount(sumOfItems);*/
           },
           child: Container(
             height: 25.0,
@@ -170,12 +206,14 @@ class _ListForMenuState extends State<ListForMenu> {
     return GestureDetector(
       child: Flexible(
         child: Container(
-          height: 170,
+          height: 180,
           width: 500,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white24,
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 5.0),
+              ]),
           child: Padding(
             padding: EdgeInsets.all(25),
             child: Flexible(

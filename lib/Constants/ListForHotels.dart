@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/Constants/Colors.dart';
 import 'package:food_delivery_app/Constants/MenuCards.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:food_delivery_app/Constants/ListForAll.dart';
+import 'package:get/get.dart';
 
 class ListForHotels extends StatelessWidget {
   String itemName;
@@ -14,7 +17,7 @@ class ListForHotels extends StatelessWidget {
   String rating;
   ListForHotels(this.itemName, this.description, this.amount, this.imgPath,
       this.index, this.OnlyVeg, this.rating);
-
+  ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     if (OnlyVeg) {
@@ -25,12 +28,19 @@ class ListForHotels extends StatelessWidget {
     return GestureDetector(
       child: Flexible(
         child: Container(
-          height: 150,
+          height: 190,
           width: 600,
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+              ]),
+          /*decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white24,
-          ),
+          ),*/
           child: Padding(
             padding: EdgeInsets.all(25),
             child: Flexible(
@@ -61,7 +71,8 @@ class ListForHotels extends StatelessWidget {
                             Flexible(
                               child: Text(
                                 itemName,
-                                style: fontStyle.copyWith(fontSize: 20),
+                                style: fontStyle.copyWith(
+                                    fontSize: 20, fontWeight: FontWeight.w500),
                               ),
                             ),
                             Icon(
@@ -77,7 +88,8 @@ class ListForHotels extends StatelessWidget {
                         ),
                         Text(
                           rating + ' / 5',
-                          style: fontStyle.copyWith(fontSize: 15),
+                          style: fontStyle.copyWith(
+                              fontSize: 15, fontWeight: FontWeight.normal),
                         ),
                         Flexible(
                           child: SizedBox(
@@ -86,7 +98,8 @@ class ListForHotels extends StatelessWidget {
                         ),
                         Text(
                           description,
-                          style: fontStyle.copyWith(fontSize: 15),
+                          style: fontStyle.copyWith(
+                              fontSize: 15, fontWeight: FontWeight.normal),
                         ),
                         Flexible(
                           child: SizedBox(
@@ -94,7 +107,7 @@ class ListForHotels extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '\$' + amount.toString() + ' for two ',
+                          'Rs' + amount.toString() + ' for two ',
                           style: fontStyle.copyWith(fontSize: 15),
                         ),
                       ],
@@ -107,10 +120,49 @@ class ListForHotels extends StatelessWidget {
         ),
       ),
       onTap: () {
+        if (productController.MyCartItem.length != 0) {
+          return showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Alert Foodies!!!!'),
+                  content: Column(
+                    children: [
+                      Text('There is already some food in the cart'),
+                      Text('Do you want to remove them????'),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      child: Text('Yes'),
+                      onPressed: () {
+                        productController.MyCartItem.clear();
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MenuCards(int.parse(index), itemName),
+                          ),
+                        );
+                      },
+                    ),
+                    TextButton(
+                      child: Text('No'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                );
+              });
+        }
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => MenuCards(int.parse(index), itemName)),
+            builder: (context) => MenuCards(int.parse(index), itemName),
+          ),
         );
         print(index.toString());
       },

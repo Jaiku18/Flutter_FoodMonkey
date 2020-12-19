@@ -6,7 +6,7 @@ import 'package:food_delivery_app/Constants/Buttons.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:food_delivery_app/Screens/payment_screen.dart';
 import 'package:food_delivery_app/Constants/ListForAll.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 
 class MyCart extends StatefulWidget {
   static const String id = 'MyCart';
@@ -15,6 +15,7 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
+  ProductController productController = Get.put(ProductController());
   @override
   void initState() {
     // TODO: implement initState
@@ -25,7 +26,7 @@ class _MyCartState extends State<MyCart> {
 
   double sum = 0;
   getSum() {
-    MyCartItem.forEach((element) {
+    productController.MyCartItem.forEach((element) {
       sum = int.parse(element.amount) * element.numberofItems + sum;
     });
     print(sum);
@@ -81,9 +82,7 @@ class _MyCartState extends State<MyCart> {
                           style: fontStyle.copyWith(fontSize: 30),
                         ),
                         IconButton(
-                          onPressed: () {
-                            MyCartItem.clear();
-                          },
+                          onPressed: () => productController.getClearList(),
                           icon: Icon(
                             AntDesign.dropbox,
                             size: 30,
@@ -94,12 +93,16 @@ class _MyCartState extends State<MyCart> {
                     SizedBox(
                       height: 10.0,
                     ),
-                    Flexible(
+                    Expanded(
                       child: Container(
                         height: 200,
                         width: 500,
-                        child: ListView(
-                          children: MyCartItem,
+                        child: GetBuilder<ProductController>(
+                          builder: (productController) {
+                            return ListView(
+                              children: productController.MyCartItem,
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -122,7 +125,7 @@ class _MyCartState extends State<MyCart> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Flexible(
+                    Expanded(
                       child: Buttons(
                         onPressedEvent: () => checkOutFun(sum),
                         buttonColor: Color(0xFF6200EE).withOpacity(0.6),
@@ -146,6 +149,6 @@ class _MyCartState extends State<MyCart> {
   void checkOutFun(double amount) {
     notificationPlugin.showNotification();
     openCheckout(amount);
-    print(MyCartItem.single.hotelName.toString());
+    print(productController.MyCartItem.single.hotelName.toString());
   }
 }

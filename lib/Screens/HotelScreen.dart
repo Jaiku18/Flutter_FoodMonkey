@@ -64,8 +64,7 @@ class _hotelMenuState extends State<hotelMenu> {
                   Flexible(
                     child: Container(
                       child: ListView(
-                          scrollDirection: Axis.vertical,
-                          children: listMenuItem),
+                          scrollDirection: Axis.vertical, children: []),
                     ),
                   ),
                 ],

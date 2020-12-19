@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.light,
+        fontFamily: 'Nexa',
         accentColor: Color(0xFF6200EE).withOpacity(0.8),
       ),
       initialRoute: welcomeScreen.id,
